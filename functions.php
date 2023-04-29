@@ -143,14 +143,25 @@ add_action('widgets_init', 'light_speed_widgets_init');
  */
 function light_speed_scripts()
 {
-	wp_enqueue_style('light-speed-style', get_stylesheet_uri(), array(), _S_VERSION);
-	wp_style_add_data('light-speed-style', 'rtl', 'replace');
 
 	wp_enqueue_script('light-speed-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+	//light speed bootstrap css
+	wp_enqueue_style('light-speed-bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), _S_VERSION);
+	//bootstrap utility css
+	wp_enqueue_style('light-speed-bootstrap-utility', get_template_directory_uri() . '/assets/css/bootstrap-utilities.min.css', array(), _S_VERSION);
+	//bootstrap grid css
+	wp_enqueue_style('light-speed-bootstrap-grid', get_template_directory_uri() . '/assets/css/bootstrap-grid.min.css', array(), _S_VERSION);
+
+	//light speed bootstrap js
+	wp_enqueue_script('light-speed-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), _S_VERSION, true);
+
+	//core style css
+	wp_enqueue_style('light-speed-style', get_stylesheet_uri(), array(), _S_VERSION);
+	wp_style_add_data('light-speed-style', 'rtl', 'replace');
 }
 add_action('wp_enqueue_scripts', 'light_speed_scripts');
 
@@ -187,3 +198,12 @@ if (defined('JETPACK__VERSION')) {
 if (class_exists('WooCommerce')) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+//register new menu location light speed
+function register_light_speed_menu()
+{
+	register_nav_menus(array(
+		'light-speed-menu' => __('Light Speed Menu'),
+	));
+}
+add_action('init', 'register_light_speed_menu');

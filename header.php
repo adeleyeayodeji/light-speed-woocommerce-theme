@@ -24,39 +24,32 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'light-speed'); ?></a>
-
-		<header id="masthead" class="site-header">
-			<div class="site-branding">
+	<div class="container">
+		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+			<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 				<?php
-				the_custom_logo();
-				if (is_front_page() && is_home()) :
+				//get site icon url
+				$site_icon_url = get_site_icon_url();
+				//if site icon url is not empty
+				if (!empty($site_icon_url)) {
+					//display site icon
 				?>
-					<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+					<img src="<?php echo $site_icon_url; ?>" alt="<?php bloginfo('name'); ?>" width="32" height="32" class="bi me-2">
 				<?php
-				else :
+				}
 				?>
-					<p class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
-				<?php
-				endif;
-				$light_speed_description = get_bloginfo('description', 'display');
-				if ($light_speed_description || is_customize_preview()) :
-				?>
-					<p class="site-description"><?php echo $light_speed_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
-												?></p>
-				<?php endif; ?>
-			</div><!-- .site-branding -->
-
-			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e('Primary Menu', 'light-speed'); ?></button>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					)
-				);
-				?>
-			</nav><!-- #site-navigation -->
-		</header><!-- #masthead -->
+				<span class="fs-4">
+					<?php bloginfo('name'); ?>
+				</span>
+			</a>
+			<?php
+			//get wp nav menu for Main Menu
+			wp_nav_menu(
+				array(
+					'theme_location' => 'light-speed-menu',
+					'container' => false,
+					'menu_class' => 'nav nav-pills'
+				)
+			);
+			?>
+		</header>

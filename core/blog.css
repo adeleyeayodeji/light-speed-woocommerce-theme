@@ -1,0 +1,41 @@
+.post-card .card img {
+	width: 304px;
+	height: 212px;
+	object-fit: cover;
+	object-position: center top;
+}
+
+.menu-item {
+	display: block;
+	padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+	font-size: var(--bs-nav-link-font-size);
+	font-weight: var(--bs-nav-link-font-weight);
+	color: var(--bs-nav-link-color);
+	text-decoration: none;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.nav-pills .menu-item {
+	background: 0 0;
+	border: 0;
+	border-radius: var(--bs-nav-pills-border-radius);
+}
+
+a {
+	color: var(--bs-nav-pills-link-color);
+	text-decoration: none;
+}
+
+.nav-pills .menu-item.current-menu-item,
+.nav-pills .show > .menu-item {
+	color: var(--bs-nav-pills-link-active-color);
+	background-color: var(--bs-nav-pills-link-active-bg);
+}
+
+.nav-pills .menu-item.current-menu-item a,
+.nav-pills .show > .menu-item a {
+	color: var(--bs-nav-pills-link-active-color);
+	text-decoration: none;
+}
+
+/*# sourceMappingURL=blog.css.map */
