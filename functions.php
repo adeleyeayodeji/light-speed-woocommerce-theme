@@ -23,29 +23,29 @@ if (!defined('_S_VERSION')) {
 function light_speed_setup()
 {
 	/*
-		* Make theme available for translation.
-		* Translations can be filed in the /languages/ directory.
-		* If you're building a theme based on Light Speed, use a find and replace
-		* to change 'light-speed' to the name of your theme in all the template files.
-		*/
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on Light Speed, use a find and replace
+	 * to change 'light-speed' to the name of your theme in all the template files.
+	 */
 	load_theme_textdomain('light-speed', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');
 
 	/*
-		* Let WordPress manage the document title.
-		* By adding theme support, we declare that this theme does not use a
-		* hard-coded <title> tag in the document head, and expect WordPress to
-		* provide it for us.
-		*/
+	 * Let WordPress manage the document title.
+	 * By adding theme support, we declare that this theme does not use a
+	 * hard-coded <title> tag in the document head, and expect WordPress to
+	 * provide it for us.
+	 */
 	add_theme_support('title-tag');
 
 	/*
-		* Enable support for Post Thumbnails on posts and pages.
-		*
-		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
-		*/
+	 * Enable support for Post Thumbnails on posts and pages.
+	 *
+	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
+	 */
 	add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
@@ -56,9 +56,9 @@ function light_speed_setup()
 	);
 
 	/*
-		* Switch default core markup for search form, comment form, and comments
-		* to output valid HTML5.
-		*/
+	 * Switch default core markup for search form, comment form, and comments
+	 * to output valid HTML5.
+	 */
 	add_theme_support(
 		'html5',
 		array(
@@ -95,9 +95,9 @@ function light_speed_setup()
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 250,
-			'width'       => 250,
-			'flex-width'  => true,
+			'height' => 250,
+			'width' => 250,
+			'flex-width' => true,
 			'flex-height' => true,
 		)
 	);
@@ -126,13 +126,13 @@ function light_speed_widgets_init()
 {
 	register_sidebar(
 		array(
-			'name'          => esc_html__('Sidebar', 'light-speed'),
-			'id'            => 'sidebar-1',
-			'description'   => esc_html__('Add widgets here.', 'light-speed'),
+			'name' => esc_html__('Sidebar', 'light-speed'),
+			'id' => 'sidebar-1',
+			'description' => esc_html__('Add widgets here.', 'light-speed'),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+			'after_widget' => '</section>',
+			'before_title' => '<h2 class="widget-title">',
+			'after_title' => '</h2>',
 		)
 	);
 }
@@ -158,6 +158,9 @@ function light_speed_scripts()
 
 	//light speed bootstrap js
 	wp_enqueue_script('light-speed-bootstrap', get_template_directory_uri() . '/assets/js/bootstrap.bundle.min.js', array(), _S_VERSION, true);
+
+	//core js
+	wp_enqueue_script('light-speed-core', get_template_directory_uri() . '/assets/js/core.js', array(), _S_VERSION, true);
 
 	//core style css
 	wp_enqueue_style('light-speed-style', get_stylesheet_uri(), array(), _S_VERSION);
@@ -202,8 +205,14 @@ if (class_exists('WooCommerce')) {
 //register new menu location light speed
 function register_light_speed_menu()
 {
-	register_nav_menus(array(
-		'light-speed-menu' => __('Light Speed Menu'),
-	));
+	register_nav_menus(
+		array(
+			'light-speed-menu' => __('Light Speed Menu'),
+		)
+	);
 }
 add_action('init', 'register_light_speed_menu');
+
+
+//elementor theme support
+require get_template_directory() . '/elementor/init.php';
