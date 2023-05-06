@@ -15,6 +15,8 @@ class LightSpeedElemento
     public function init()
     {
         add_action('elementor/widgets/register', [$this, 'register_posts_slider_widget']);
+        //add widget posts card
+        add_action('elementor/widgets/register', [$this, 'register_posts_card_widget']);
     }
 
     /**
@@ -32,6 +34,23 @@ class LightSpeedElemento
         require_once(__DIR__ . '/widgets/posts-slider.php');
 
         $widgets_manager->register(new \Elementor_postsSlider_Widget());
+    }
+
+    /**
+     * Register posts card Widget.
+     *
+     * Include widget file and register widget class.
+     *
+     * @since 1.0.0
+     * @param \Elementor\Widgets_Manager $widgets_manager Elementor widgets manager.
+     * @return void
+     */
+    function register_posts_card_widget($widgets_manager)
+    {
+
+        require_once(__DIR__ . '/widgets/posts-card.php');
+
+        $widgets_manager->register(new \Elementor_postsCard_Widget());
     }
 
     /**

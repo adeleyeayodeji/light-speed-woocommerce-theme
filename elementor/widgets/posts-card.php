@@ -4,19 +4,19 @@ if (!defined('ABSPATH')) {
 }
 
 /**
- * Elementor PostsSlider Widget.
+ * Elementor PostsCard Widget.
  *
  * Elementor widget that inserts an embbedable content into the page, from any given URL.
  *
  * @since 1.0.0
  */
-class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
+class Elementor_postsCard_Widget extends \Elementor\Widget_Base
 {
 
     /**
      * Get widget name.
      *
-     * Retrieve PostsSlider widget name.
+     * Retrieve PostsCard widget name.
      *
      * @since 1.0.0
      * @access public
@@ -24,13 +24,13 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
      */
     public function get_name()
     {
-        return 'posts-slider';
+        return 'posts-card';
     }
 
     /**
      * Get widget title.
      *
-     * Retrieve PostsSlider widget title.
+     * Retrieve PostsCard widget title.
      *
      * @since 1.0.0
      * @access public
@@ -38,13 +38,13 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
      */
     public function get_title()
     {
-        return esc_html__('Lightspeed Posts Slider', 'light-speed');
+        return esc_html__('Lightspeed Posts Card', 'lightspeed');
     }
 
     /**
      * Get widget icon.
      *
-     * Retrieve PostsSlider widget icon.
+     * Retrieve PostsCard widget icon.
      *
      * @since 1.0.0
      * @access public
@@ -52,7 +52,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
      */
     public function get_icon()
     {
-        return 'eicon-slider-push';
+        return 'eicon-post-list';
     }
 
     /**
@@ -72,7 +72,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
     /**
      * Get widget categories.
      *
-     * Retrieve the list of categories the PostsSlider widget belongs to.
+     * Retrieve the list of categories the PostsCard widget belongs to.
      *
      * @since 1.0.0
      * @access public
@@ -86,7 +86,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
     /**
      * Get widget keywords.
      *
-     * Retrieve the list of keywords the PostsSlider widget belongs to.
+     * Retrieve the list of keywords the PostsCard widget belongs to.
      *
      * @since 1.0.0
      * @access public
@@ -94,16 +94,16 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
      */
     public function get_keywords()
     {
-        return ['postsslider', 'posts', 'post', 'slider', 'carousel'];
+        return ['postscard', 'posts', 'post', 'card', 'carousel'];
     }
 
     //get post types
     public function get_posts_types()
     {
         return [
-            'post' => esc_html__('Post', 'light-speed'),
-            'page' => esc_html__('Page', 'light-speed'),
-            'product' => esc_html__('Product', 'light-speed'),
+            'post' => esc_html__('Post', 'lightspeed'),
+            'page' => esc_html__('Page', 'lightspeed'),
+            'product' => esc_html__('Product', 'lightspeed'),
         ];
     }
 
@@ -119,7 +119,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
     }
 
     /**
-     * Register PostsSlider widget controls.
+     * Register PostsCard widget controls.
      *
      * Add input fields to allow the user to customize the widget settings.
      *
@@ -132,7 +132,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'section_content',
             [
-                'label' => esc_html__('Posts Slider', 'light-speed'),
+                'label' => esc_html__('Posts Card', 'lightspeed'),
             ]
         );
 
@@ -140,7 +140,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_type',
             [
-                'label' => esc_html__('Posts Type', 'light-speed'),
+                'label' => esc_html__('Posts Type', 'lightspeed'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'post',
                 'options' => $this->get_posts_types(),
@@ -151,7 +151,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_count',
             [
-                'label' => esc_html__('Posts Count', 'light-speed'),
+                'label' => esc_html__('Posts Count', 'lightspeed'),
                 'type' => \Elementor\Controls_Manager::NUMBER,
                 'default' => 3,
             ]
@@ -161,13 +161,13 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_orderby',
             [
-                'label' => esc_html__('Posts Order By', 'light-speed'),
+                'label' => esc_html__('Posts Order By', 'lightspeed'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'date',
                 'options' => [
-                    'date' => esc_html__('Date', 'light-speed'),
-                    'title' => esc_html__('Title', 'light-speed'),
-                    'rand' => esc_html__('Random', 'light-speed'),
+                    'date' => esc_html__('Date', 'lightspeed'),
+                    'title' => esc_html__('Title', 'lightspeed'),
+                    'rand' => esc_html__('Random', 'lightspeed'),
                 ],
             ]
         );
@@ -176,12 +176,12 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_order',
             [
-                'label' => esc_html__('Posts Order', 'light-speed'),
+                'label' => esc_html__('Posts Order', 'lightspeed'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => 'DESC',
                 'options' => [
-                    'DESC' => esc_html__('Descending', 'light-speed'),
-                    'ASC' => esc_html__('Ascending', 'light-speed'),
+                    'DESC' => esc_html__('Descending', 'lightspeed'),
+                    'ASC' => esc_html__('Ascending', 'lightspeed'),
                 ],
             ]
         );
@@ -190,7 +190,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'posts_category',
             [
-                'label' => esc_html__('Posts Category', 'light-speed'),
+                'label' => esc_html__('Posts Category', 'lightspeed'),
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'multiple' => true,
                 'options' => $this->get_posts_categories(),
@@ -201,7 +201,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
     }
 
     /**
-     * Render PostsSlider widget output on the frontend.
+     * Render PostsCard widget output on the frontend.
      *
      * Written in PHP and used to generate the final HTML.
      *
@@ -212,6 +212,6 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
     {
 
         $settings = $this->get_settings_for_display();
-        echo lightspeed_widget_content_loader("posts-slider", $settings);
+        echo lightspeed_widget_content_loader("posts-card", $settings);
     }
 }
