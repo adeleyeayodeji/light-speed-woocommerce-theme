@@ -15,6 +15,16 @@ $loopposts = get_posts(
 );
 ?>
 <div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between">
+            <div>
+                <h2 style="    font-size: 20px;"><?php echo esc_html($settings['title']) ?></h2>
+            </div>
+            <div>
+                <a href="<?php echo esc_html($settings['link_url']) ?>"><?php echo esc_html($settings['link_title']) ?></a>
+            </div>
+        </div>
+    </div>
     <?php
     //check if posts exist
     if ($loopposts) :
@@ -23,7 +33,7 @@ $loopposts = get_posts(
             //post thumbnail full
             $thumb = get_the_post_thumbnail_url($spost->ID, 'full');
     ?>
-            <div <?php post_class("col-lg-3 col-md-3 col-sm-12 post-card"); ?> id="post-<?php the_ID(); ?>">
+            <div <?php post_class($settings['card_columns'] . " mb-3 ls-posts-card post-card"); ?> id="post-<?php echo $spost->ID; ?>">
                 <div class="card">
                     <img src="<?php echo esc_url($thumb); ?>" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -44,7 +54,7 @@ $loopposts = get_posts(
                                 }
                                 ?>
                         </p>
-                        <a href="<?php echo get_the_permalink($spost->ID); ?>" class="btn btn-primary text-white">Read More</a>
+                        <a href="<?php echo get_the_permalink($spost->ID); ?>" class="btn ls-posts-card__btn text-white"><?php echo esc_html($settings['button_text']) ?></a>
                     </div>
                 </div>
             </div>

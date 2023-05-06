@@ -136,6 +136,39 @@ class Elementor_postsCard_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        //title
+        $this->add_control(
+            'title',
+            [
+                'label' => esc_html__('Title', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Recent Posts', 'lightspeed'),
+            ]
+        );
+
+        //link_title
+        $this->add_control(
+            'link_title',
+            [
+                'label' => esc_html__('Link Title', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('View All', 'lightspeed'),
+            ]
+        );
+
+        //link_url
+        $this->add_control(
+            'link_url',
+            [
+                'label' => esc_html__('Link URL', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::URL,
+                'placeholder' => esc_html__('https://your-link.com', 'lightspeed'),
+                'default' => [
+                    'url' => '#',
+                ],
+            ]
+        );
+
         //posts type
         $this->add_control(
             'posts_type',
@@ -196,6 +229,66 @@ class Elementor_postsCard_Widget extends \Elementor\Widget_Base
                 'options' => $this->get_posts_categories(),
             ]
         );
+
+        //heading CARDS STYLE
+        $this->add_control(
+            'heading_cards',
+            [
+                'label' => esc_html__('Cards Style', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        //card columns on multiple devices
+        $this->add_responsive_control(
+            'card_columns',
+            [
+                'label' => esc_html__('Columns', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'col-lg-3 col-md-6 col-sm-12',
+                'options' => [
+                    'col-lg-3 col-md-6 col-sm-12' => esc_html__('4 Columns', 'lightspeed'),
+                    'col-lg-4 col-md-6 col-sm-12' => esc_html__('3 Columns', 'lightspeed'),
+                    'col-lg-6 col-md-6 col-sm-12' => esc_html__('2 Columns', 'lightspeed'),
+                    'col-lg-12 col-md-6 col-sm-12' => esc_html__('1 Column', 'lightspeed'),
+                ],
+            ]
+        );
+
+        //heading BUTTON
+        $this->add_control(
+            'heading_button',
+            [
+                'label' => esc_html__('Button', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+                'separator' => 'before',
+            ]
+        );
+
+        //button text
+        $this->add_control(
+            'button_text',
+            [
+                'label' => esc_html__('Button Text', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Read More', 'lightspeed'),
+            ]
+        );
+
+        //btn_background
+        $this->add_control(
+            'btn_background',
+            [
+                'label' => esc_html__('Button Background', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#000000',
+                'selectors' => [
+                    '{{WRAPPER}} .ls-posts-card .ls-posts-card__btn' => 'background-color: {{VALUE}}',
+                ],
+            ]
+        );
+
 
         $this->end_controls_section();
     }

@@ -47,6 +47,7 @@ $loopposts = get_posts(
                         <p>
                             <?php echo esc_html($spost->post_excerpt); ?>
                         </p>
+                        <a href="<?php echo get_the_permalink($spost->ID); ?>" class="btn btn-sm border border-white text-white">Read More</a>
                     </div>
                 </div>
         <?php
