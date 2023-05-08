@@ -1,0 +1,32 @@
+/* lightspeed-banner responsive */
+@media (max-width: 1200px) {
+  .lightspeed-banner {
+    .lightspeed-banner-content {
+      padding: 100px 100px;
+    }
+  }
+}
+// 992px
+@media (max-width: 992px) {
+  .lightspeed-banner {
+    .lightspeed-banner-content {
+      padding: 100px 50px;
+    }
+  }
+}
+// 768px
+@media (max-width: 768px) {
+  .lightspeed-banner {
+    .lightspeed-banner-content {
+      padding: 100px 20px;
+    }
+  }
+}
+// 576px
+@media (max-width: 576px) {
+  .lightspeed-banner {
+    .lightspeed-banner-content {
+      padding: 100px 10px;
+    }
+  }
+}

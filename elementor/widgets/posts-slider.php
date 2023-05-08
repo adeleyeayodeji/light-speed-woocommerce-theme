@@ -1,4 +1,7 @@
 <?php
+
+namespace LightSpeed\Elementor\Widgets;
+
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
@@ -24,7 +27,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
      */
     public function get_name()
     {
-        return 'posts-slider';
+        return 'light-speed-posts-slider';
     }
 
     /**
@@ -80,7 +83,7 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
      */
     public function get_categories()
     {
-        return ['general'];
+        return ['lightspeed'];
     }
 
     /**
@@ -194,6 +197,85 @@ class Elementor_postsSlider_Widget extends \Elementor\Widget_Base
                 'type' => \Elementor\Controls_Manager::SELECT2,
                 'multiple' => true,
                 'options' => $this->get_posts_categories(),
+            ]
+        );
+
+        //show post_excerpt or not
+        $this->add_control(
+            'show_post_excerpt',
+            [
+                'label' => esc_html__('Show Post Excerpt', 'light-speed'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', 'light-speed'),
+                'label_off' => esc_html__('Hide', 'light-speed'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        //HEADING BUTTON
+        $this->add_control(
+            'heading_button',
+            [
+                'label' => esc_html__('Button', 'light-speed'),
+                'type' => \Elementor\Controls_Manager::HEADING,
+            ]
+        );
+
+        //show or hide button
+        $this->add_control(
+            'show_button',
+            [
+                'label' => esc_html__('Show Button', 'light-speed'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'label_on' => esc_html__('Show', 'light-speed'),
+                'label_off' => esc_html__('Hide', 'light-speed'),
+                'return_value' => 'yes',
+                'default' => 'yes',
+            ]
+        );
+
+        //button text
+        $this->add_control(
+            'button_text',
+            [
+                'label' => esc_html__('Button Text', 'light-speed'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => esc_html__('Read More', 'light-speed'),
+            ]
+        );
+
+        //button style
+        $this->add_control(
+            'button_style',
+            [
+                'label' => esc_html__('Button Style', 'light-speed'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'btn btn-sm border border-white text-white',
+                'options' => [
+                    'btn btn-sm border border-white text-white' => esc_html__('Default Style', 'light-speed'),
+                    'btn btn-sm btn-primary' => esc_html__('Primary', 'light-speed'),
+                    'btn btn-sm btn-secondary' => esc_html__('Secondary', 'light-speed'),
+                    'btn btn-sm btn-success' => esc_html__('Success', 'light-speed'),
+                    'btn btn-sm btn-danger' => esc_html__('Danger', 'light-speed'),
+                    'btn btn-sm btn-warning' => esc_html__('Warning', 'light-speed'),
+                    'btn btn-sm btn-info' => esc_html__('Info', 'light-speed'),
+                    'btn btn-sm btn-light' => esc_html__('Light', 'light-speed'),
+                    'btn btn-sm btn-dark' => esc_html__('Dark', 'light-speed'),
+                ],
+            ]
+        );
+
+        //button color
+        $this->add_control(
+            'button_color',
+            [
+                'label' => esc_html__('Button Text Color', 'light-speed'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#ffffff',
+                'selectors' => [
+                    '{{WRAPPER}} .carousel-inner .carousel-item .btn' => 'color: {{VALUE}}',
+                ],
             ]
         );
 

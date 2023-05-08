@@ -32,13 +32,13 @@ a {
 
 .nav-pills .menu-item.current-menu-item,
 .nav-pills .show > .menu-item {
-	color: var(--bs-nav-pills-link-active-color);
-	background-color: var(--bs-nav-pills-link-active-bg);
+	color: black;
+	border-bottom: 1px solid black;
 }
 
 .nav-pills .menu-item.current-menu-item a,
 .nav-pills .show > .menu-item a {
-	color: var(--bs-nav-pills-link-active-color);
+	color: black;
 	text-decoration: none;
 }
 
@@ -51,6 +51,39 @@ a {
 
 .carousel .carousel-inner .carousel-caption {
 	background: #00000096;
+}
+
+.lightspeed-banner {
+	background-repeat: no-repeat;
+}
+
+.lightspeed-banner .lightspeed-banner-content {
+	background: #000000b0;
+	color: white;
+	text-align: center;
+}
+
+.lightspeed-banner .lightspeed-banner-content a {
+	color: black;
+	text-decoration: none;
+	background: white;
+}
+
+.lightspeed-banner .lightspeed-banner-content h3 {
+	font-size: 40px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+
+.lightspeed-banner .lightspeed-banner-content p {
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+.lightspeed-banner .lightspeed-banner-content a:hover {
+	background: orange;
+	color: black;
 }
 
 /*# sourceMappingURL=blog.css.map */

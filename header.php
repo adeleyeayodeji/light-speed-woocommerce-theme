@@ -26,7 +26,7 @@
 	<?php wp_body_open(); ?>
 	<div class="container">
 		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-			<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+			<a href="<?php echo site_url(); ?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
 				<?php
 				//get site icon url
 				$site_icon_url = get_site_icon_url();

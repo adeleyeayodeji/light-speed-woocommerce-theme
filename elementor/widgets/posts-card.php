@@ -1,4 +1,7 @@
 <?php
+
+namespace LightSpeed\Elementor\Widgets;
+
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
@@ -24,7 +27,7 @@ class Elementor_postsCard_Widget extends \Elementor\Widget_Base
      */
     public function get_name()
     {
-        return 'posts-card';
+        return 'light-speed-posts-card';
     }
 
     /**
@@ -80,7 +83,7 @@ class Elementor_postsCard_Widget extends \Elementor\Widget_Base
      */
     public function get_categories()
     {
-        return ['general'];
+        return ['lightspeed'];
     }
 
     /**
@@ -166,6 +169,25 @@ class Elementor_postsCard_Widget extends \Elementor\Widget_Base
                 'default' => [
                     'url' => '#',
                 ],
+            ]
+        );
+
+        //space between heading and posts
+        $this->add_control(
+            'space_heading_posts',
+            [
+                'label' => esc_html__('Space Between Posts', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 10,
+            ]
+        );
+
+        //heading POST QUERY
+        $this->add_control(
+            'heading_post_query',
+            [
+                'label' => esc_html__('Post Query', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::HEADING,
             ]
         );
 
@@ -289,6 +311,21 @@ class Elementor_postsCard_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        //btn width class
+        $this->add_control(
+            'btn_width_class',
+            [
+                'label' => esc_html__('Button Width', 'lightspeed'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => 'w-50',
+                'options' => [
+                    'w-25' => esc_html__('25%', 'lightspeed'),
+                    'w-50' => esc_html__('50%', 'lightspeed'),
+                    'w-75' => esc_html__('75%', 'lightspeed'),
+                    'w-100' => esc_html__('100%', 'lightspeed'),
+                ],
+            ]
+        );
 
         $this->end_controls_section();
     }

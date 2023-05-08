@@ -1,5 +1,8 @@
 <?php
 //security
+
+use LightSpeed\Elementor\Widgets\LightSpeedElemento;
+
 if (!defined('ABSPATH')) {
     exit;
 }

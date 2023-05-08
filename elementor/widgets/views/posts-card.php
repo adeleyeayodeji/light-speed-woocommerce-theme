@@ -15,7 +15,7 @@ $loopposts = get_posts(
 );
 ?>
 <div class="row">
-    <div class="col-12">
+    <div class="col-12" style="margin-bottom: <?php echo esc_attr($settings['space_heading_posts']); ?>px;">
         <div class="d-flex justify-content-between">
             <div>
                 <h2 style="    font-size: 20px;"><?php echo esc_html($settings['title']) ?></h2>
@@ -34,7 +34,7 @@ $loopposts = get_posts(
             $thumb = get_the_post_thumbnail_url($spost->ID, 'full');
     ?>
             <div <?php post_class($settings['card_columns'] . " mb-3 ls-posts-card post-card"); ?> id="post-<?php echo $spost->ID; ?>">
-                <div class="card">
+                <div class="card p-1">
                     <img src="<?php echo esc_url($thumb); ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo get_the_title($spost->ID); ?></h5>
@@ -54,7 +54,7 @@ $loopposts = get_posts(
                                 }
                                 ?>
                         </p>
-                        <a href="<?php echo get_the_permalink($spost->ID); ?>" class="btn ls-posts-card__btn text-white"><?php echo esc_html($settings['button_text']) ?></a>
+                        <a href="<?php echo get_the_permalink($spost->ID); ?>" class="btn ls-posts-card__btn text-white <?php echo esc_attr($settings['btn_width_class']); ?>"><?php echo esc_html($settings['button_text']) ?></a>
                     </div>
                 </div>
             </div>
