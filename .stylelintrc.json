@@ -1,16 +1,21 @@
 {
-    "extends": [
-        "@wordpress/stylelint-config/scss"
-    ],
-    "ignoreFiles": [
-        "sass/_normalize.scss"
-    ],
-    "rules": {
-        "font-family-no-missing-generic-family-keyword": null,
-        "no-descending-specificity": null,
-        "block-no-empty": null,
-        "no-duplicate-selectors": null,
-        "font-family-no-duplicate-names": null,
-        "selector-class-pattern": null
-    }
+  "plugins": ["stylelint-prettier"],
+  "extends": ["@wordpress/stylelint-config/scss"],
+  "ignoreFiles": ["sass/_normalize.scss"],
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-descending-specificity": null,
+    "block-no-empty": null,
+    "no-duplicate-selectors": null,
+    "font-family-no-duplicate-names": null,
+    "selector-class-pattern": null,
+    "block-closing-brace-newline-after": "always-multi-line",
+    "block-closing-brace-empty-line-before": "never",
+    "block-closing-brace-space-before": "always",
+    "block-opening-brace-space-after": "always",
+    "block-opening-brace-space-before": "always",
+    "block-closing-brace-newline-before": "always-multi-line",
+    "block-opening-brace-newline-after": "always-multi-line",
+    "indentation": 4
+  }
 }
