@@ -12,7 +12,6 @@
  *
  * @package Light_Speed
  */
-var_dump("index.php");
 get_header();
 ?>
 

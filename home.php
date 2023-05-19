@@ -15,7 +15,7 @@
 get_header();
 ?>
 
-<main>
+<div class="container">
     <header>
         <h1 class="page-title"><?php single_post_title(); ?></h1>
     </header>
@@ -49,7 +49,7 @@ get_header();
         </div>
     </section>
 
-</main><!-- #main -->
+</div><!-- #main -->
 
 <?php
 // get_sidebar();

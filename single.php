@@ -10,7 +10,7 @@
 
 get_header();
 ?>
-<div class="row">
+<div class="row px-3">
 	<div class="col-lg-8 col-md-8 col-sm-12">
 		<main id="primary" class="site-main">
 
@@ -18,7 +18,7 @@ get_header();
 			while (have_posts()) :
 				the_post();
 
-				get_template_part('template-parts/content-single', get_post_type());
+				get_template_part('template-parts/content', 'single');
 
 			?>
 				<div class="card mb-3">

@@ -24,9 +24,9 @@
 
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
-	<div class="container">
-		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-			<a href="<?php echo site_url(); ?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+	<div class="container-fluid px-0 mx-0">
+		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom px-2">
+			<a href="<?php echo site_url(); ?>" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none w-25 px-2">
 				<?php
 				//get site icon url
 				$site_icon_url = get_site_icon_url();
@@ -48,7 +48,7 @@
 				array(
 					'theme_location' => 'light-speed-menu',
 					'container' => false,
-					'menu_class' => 'nav nav-pills'
+					'menu_class' => 'nav nav-pills w-50 justify-content-start'
 				)
 			);
 			?>
