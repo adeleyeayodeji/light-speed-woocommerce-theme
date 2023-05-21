@@ -21,7 +21,7 @@ $loopposts = get_posts(
                 <h2 style="    font-size: 20px;"><?php echo esc_html($settings['title']) ?></h2>
             </div>
             <div>
-                <a href="<?php echo esc_html($settings['link_url']) ?>"><?php echo esc_html($settings['link_title']) ?></a>
+                <a href="<?php echo esc_url($settings['link_url']['url']) ?>"><?php echo esc_html($settings['link_title']) ?></a>
             </div>
         </div>
     </div>
